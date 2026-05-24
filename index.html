@@ -3,245 +3,344 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Вебинар по нейросетям — 2 часа практики</title>
+  <title>AI Прорыв 2026 — Практический интенсив по нейросетям</title>
   <style>
     :root {
-      --bg: #0b1020;
-      --card: #121934;
-      --text: #f2f6ff;
-      --muted: #b7c3e0;
-      --accent: #5b8cff;
-      --accent-2: #43d9ad;
-      --danger: #ff6b6b;
-      --radius: 18px;
+      --bg: #070b17;
+      --bg-soft: #0f1630;
+      --card: rgba(255, 255, 255, 0.06);
+      --card-strong: #121c3d;
+      --text: #f6f8ff;
+      --muted: #b7c5f0;
+      --accent: #7d8dff;
+      --accent-2: #3ee8c3;
+      --accent-3: #ff92c2;
+      --radius-xl: 28px;
+      --radius-lg: 18px;
+      --radius-sm: 12px;
+      --shadow: 0 20px 50px rgba(8, 12, 25, 0.45);
     }
 
     * { box-sizing: border-box; }
-    body {
+
+    html, body {
       margin: 0;
-      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      padding: 0;
       color: var(--text);
-      background: radial-gradient(1200px 800px at 10% -20%, #1e2f66 0%, transparent 55%),
-                  radial-gradient(1000px 700px at 120% 0%, #1e6652 0%, transparent 50%),
-                  var(--bg);
-      line-height: 1.5;
+      background:
+        radial-gradient(900px 500px at 10% -20%, rgba(125, 141, 255, 0.3), transparent 60%),
+        radial-gradient(800px 550px at 95% 5%, rgba(62, 232, 195, 0.2), transparent 55%),
+        linear-gradient(180deg, #060913, #0a1021 45%, #0b1329 100%);
+      font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+      line-height: 1.55;
     }
 
+    a { color: inherit; }
+
     .container {
-      width: min(1080px, 92%);
+      width: min(1140px, 92%);
       margin: 0 auto;
     }
 
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+      background: rgba(7, 11, 23, 0.7);
+      z-index: 15;
+    }
+
+    .brand {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      font-weight: 700;
+      letter-spacing: .2px;
+    }
+
+    .brand-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 0 20px rgba(125, 141, 255, 0.9);
+    }
+
+    .btn {
+      border: 0;
+      cursor: pointer;
+      border-radius: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform .18s ease, box-shadow .18s ease;
+      display: inline-block;
+      padding: 13px 20px;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      color: #fff;
+      background: linear-gradient(135deg, var(--accent), #97a4ff 55%, #7bf3db);
+      box-shadow: 0 8px 24px rgba(125, 141, 255, 0.4);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      color: var(--text);
+    }
+
     .hero {
-      padding: 72px 0 48px;
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 24px;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 28px;
+      padding: 44px 0 30px;
       align-items: center;
     }
 
     .badge {
-      display: inline-block;
-      background: rgba(67, 217, 173, 0.2);
-      color: #9ff5dc;
-      border: 1px solid rgba(67, 217, 173, 0.45);
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
       border-radius: 999px;
       padding: 8px 14px;
-      font-weight: 600;
       font-size: 14px;
+      font-weight: 600;
+      color: #d2ffe9;
+      border: 1px solid rgba(62, 232, 195, 0.5);
+      background: rgba(62, 232, 195, 0.14);
       margin-bottom: 16px;
     }
 
     h1 {
       margin: 0 0 14px;
-      font-size: clamp(32px, 5vw, 56px);
-      line-height: 1.12;
+      font-size: clamp(34px, 5.2vw, 62px);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
     }
 
     .lead {
+      margin: 0 0 26px;
+      font-size: clamp(18px, 2.2vw, 22px);
       color: var(--muted);
-      font-size: clamp(17px, 2vw, 20px);
-      margin: 0 0 28px;
       max-width: 62ch;
     }
 
-    .cta-row {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 20px;
+    .hero-points {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 26px;
+      padding: 0;
+      list-style: none;
     }
 
-    .btn {
-      appearance: none;
-      border: none;
-      cursor: pointer;
-      border-radius: 12px;
-      padding: 14px 20px;
-      font-weight: 700;
-      text-decoration: none;
-      transition: transform .15s ease, opacity .15s ease;
-      display: inline-block;
+    .hero-points li {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+      color: #dbe4ff;
+      font-size: 15px;
     }
 
-    .btn-primary {
-      background: linear-gradient(135deg, var(--accent), #7ba0ff);
-      color: white;
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: var(--text);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-    }
-
-    .btn:hover { transform: translateY(-1px); }
-    .btn:active { transform: translateY(0); opacity: .9; }
-
-    .hero-card {
-      background: linear-gradient(165deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: var(--radius);
-      padding: 24px;
-      backdrop-filter: blur(4px);
+    .panel {
+      background: linear-gradient(165deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03));
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: var(--radius-xl);
+      padding: 26px;
+      box-shadow: var(--shadow);
     }
 
     .price {
-      font-size: 38px;
+      font-size: 42px;
       font-weight: 800;
-      margin: 8px 0;
+      margin: 8px 0 6px;
     }
 
-    .deadline {
-      color: #ffd7d7;
-      background: rgba(255, 107, 107, 0.14);
-      border: 1px solid rgba(255, 107, 107, 0.4);
+    .price small {
+      font-size: 16px;
+      color: #ccd8ff;
+      font-weight: 500;
+      margin-left: 6px;
+    }
+
+    .meta {
+      color: #c8d4fb;
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+
+    .warning {
       display: inline-block;
-      padding: 8px 12px;
+      color: #ffe4ef;
+      background: rgba(255, 146, 194, 0.2);
+      border: 1px solid rgba(255, 146, 194, 0.5);
       border-radius: 10px;
+      padding: 7px 11px;
+      font-size: 14px;
       font-weight: 600;
-      margin-top: 8px;
+      margin-bottom: 12px;
     }
 
-    section { padding: 28px 0; }
+    section { padding: 36px 0; }
 
-    .cards {
+    h2 {
+      margin: 0 0 16px;
+      font-size: clamp(26px, 3.4vw, 40px);
+      letter-spacing: -0.01em;
+    }
+
+    .sub {
+      margin: 0 0 24px;
+      color: var(--muted);
+      max-width: 74ch;
+    }
+
+    .grid-3 {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
     }
 
     .card {
-      background: var(--card);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 14px;
       padding: 18px;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: var(--card);
     }
 
-    h2 {
-      font-size: clamp(24px, 3vw, 34px);
-      margin: 0 0 14px;
-    }
+    .card h3 { margin: 0 0 8px; font-size: 20px; }
+    .card p { margin: 0; color: #c4d0f3; }
 
-    ul { margin: 0; padding-left: 20px; }
-    li { margin-bottom: 8px; color: var(--muted); }
-
-    .audience {
+    .agenda {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
+      gap: 12px;
+      counter-reset: item;
     }
 
-    .footer-cta {
-      margin: 26px 0 56px;
+    .agenda li {
+      list-style: none;
+      background: var(--bg-soft);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 14px;
+      padding: 14px 14px 14px 50px;
+      position: relative;
+      color: #d6e0ff;
+    }
+
+    .agenda li::before {
+      counter-increment: item;
+      content: counter(item);
+      position: absolute;
+      left: 14px;
+      top: 12px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #fff;
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .cta {
+      margin: 40px 0 56px;
       text-align: center;
-      background: linear-gradient(160deg, #19254e, #15253f);
-      border-radius: var(--radius);
-      border: 1px solid rgba(255,255,255,0.12);
-      padding: 30px 20px;
+      background: linear-gradient(165deg, #19254f, #152346 45%, #11333a);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: var(--radius-xl);
+      padding: 36px 22px;
+      box-shadow: var(--shadow);
     }
 
-    .small { font-size: 14px; color: #9aa7cb; }
+    .small { font-size: 14px; color: #a9b7de; }
 
-    @media (max-width: 860px) {
+    @media (max-width: 920px) {
       .hero { grid-template-columns: 1fr; }
-      .cards, .audience { grid-template-columns: 1fr; }
+      .grid-3 { grid-template-columns: 1fr; }
+      .hero-points { grid-template-columns: 1fr; }
+      .topbar { position: static; }
     }
   </style>
 </head>
 <body>
+  <header class="container topbar">
+    <div class="brand"><span class="brand-dot"></span>AI Прорыв 2026</div>
+    <a href="#register" class="btn btn-ghost">Участвовать</a>
+  </header>
+
   <main class="container">
     <section class="hero">
       <div>
-        <span class="badge">Онлайн-вебинар • 2 часа</span>
-        <h1>Нейросети для работы: быстро разберётесь и сразу начнёте применять</h1>
-        <p class="lead">
-          Практический вебинар для тех, кто хочет познакомиться с ИИ-инструментами и уже в день обучения внедрить их в свои задачи:
-          от картинок и дизайна до личных ассистентов, которые сами собирают информацию.
-        </p>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="#register">Забронировать место</a>
-          <a class="btn btn-secondary" href="#program">Посмотреть программу</a>
-        </div>
-        <p class="small">Подходит новичкам. Без сложной теории — только нужные инструменты и пошаговые действия.</p>
+        <span class="badge">Живой онлайн-интенсив • 2 часа практики</span>
+        <h1>Нейросети для работы и бизнеса: от хаоса к системе за 1 вечер</h1>
+        <p class="lead">Вы получите чёткий пошаговый план, рабочие промпты и инструменты, которые можно внедрить в задачи уже на следующий день.</p>
+        <ul class="hero-points">
+          <li>Без лишней теории: только прикладные кейсы</li>
+          <li>Материалы и шаблоны остаются у вас</li>
+          <li>Демонстрация реальных сценариев в прямом эфире</li>
+          <li>Подходит новичкам и действующим специалистам</li>
+        </ul>
+        <a class="btn btn-primary" href="#program">Посмотреть программу</a>
       </div>
 
-      <aside class="hero-card" id="register">
-        <h3>Условия участия</h3>
-        <p class="small">Спеццена действует ограниченное время</p>
-        <div class="price">2 900 ₽</div>
-        <div class="deadline">До 5 июня</div>
-        <ul style="margin-top: 16px;">
-          <li>Формат: онлайн, подключение из любой точки мира</li>
-          <li>Длительность: 2 часа концентрированной практики</li>
-          <li>Получите все инструкции, ссылки и руководство по подключению и настройке</li>
+      <aside class="panel" id="register">
+        <h3 style="margin:0; font-size:24px;">Старт потока: 6 июня 2026</h3>
+        <p class="meta">Онлайн • Запись + чек-листы + набор промптов</p>
+        <div class="price">2 900 ₽ <small>вместо 4 900 ₽</small></div>
+        <div class="warning">Скидка действует до 5 июня 2026</div>
+        <ul style="margin: 12px 0 20px; padding-left: 18px; color:#d6e0ff;">
+          <li>Разбор 10+ ИИ-инструментов для реальной работы</li>
+          <li>Сценарии автоматизации рутинных задач</li>
+          <li>Q&A блок с ответами на ваши кейсы</li>
         </ul>
-        <div class="cta-row" style="margin-top: 18px;">
-          <a class="btn btn-primary" href="#">Записаться на вебинар</a>
-        </div>
+        <a class="btn btn-primary" href="#">Забронировать место</a>
       </aside>
     </section>
 
     <section id="program">
-      <h2>Что будет на вебинаре</h2>
-      <div class="cards">
+      <h2>Что изменили в новой версии лендинга</h2>
+      <p class="sub">Новый визуальный стиль, более понятная структура и усиленные блоки доверия, чтобы быстрее донести ценность вебинара и повысить конверсию в регистрацию.</p>
+      <div class="grid-3">
         <article class="card">
-          <h3>Подборка главных ИИ-инструментов</h3>
-          <p class="small">Разберём проверенные сервисы, которые реально экономят время и повышают продуктивность.</p>
+          <h3>Сильный первый экран</h3>
+          <p>Добавили акцентный оффер, ключевые выгоды и удобный CTA на первом экране.</p>
         </article>
         <article class="card">
-          <h3>Сценарии «взял и применил»</h3>
-          <p class="small">Покажу, как использовать ИИ в ежедневных задачах: тексты, визуал, анализ, автоматизация.</p>
+          <h3>Понятная экономика участия</h3>
+          <p>Выделили стоимость, дедлайн акции и конкретику по формату для снятия возражений.</p>
         </article>
         <article class="card">
-          <h3>Быстрый старт без хаоса</h3>
-          <p class="small">Дам порядок действий, чтобы не тонуть в сотнях приложений и начать с самого важного.</p>
+          <h3>Структурированная программа</h3>
+          <p>Показываем путь участника по шагам: от инструментов до практической автоматизации.</p>
         </article>
       </div>
     </section>
 
     <section>
-      <h2>Кому подойдёт</h2>
-      <div class="audience">
-        <article class="card">
-          <h3>Тем, кто хочет освоить ИИ быстро</h3>
-          <p class="small">Если вам нужен короткий и понятный путь в нейросети без долгого самостоятельного поиска.</p>
-        </article>
-        <article class="card">
-          <h3>Тем, кто хочет больше результатов за то же время</h3>
-          <p class="small">ИИ поможет ускорить рутину, собирать данные и делать работу качественнее.</p>
-        </article>
-      </div>
+      <h2>Программа интенсива</h2>
+      <p class="sub">Блоки выстроены от базового понимания к внедрению в ежедневные процессы.</p>
+      <ol class="agenda">
+        <li><strong>Быстрый обзор рынка ИИ:</strong> какие инструменты действительно дают результат в 2026 году.</li>
+        <li><strong>Промпты, которые работают:</strong> универсальные шаблоны для текста, анализа и визуала.</li>
+        <li><strong>Автоматизация без кода:</strong> как собирать мини-ассистентов под повторяющиеся задачи.</li>
+        <li><strong>Ваш план на 14 дней:</strong> как внедрить ИИ в рабочие процессы без перегруза.</li>
+      </ol>
     </section>
 
-    <section class="footer-cta">
-      <h2 style="margin-bottom: 10px;">Получите систему, а не просто список ссылок</h2>
-      <p class="lead" style="margin: 0 auto 18px; max-width: 700px; font-size: 18px;">
-        На вебинаре вы получите готовые инструкции, полезные ссылки и руководство по подключению,
-        использованию и настройке ИИ-инструментов под ваши задачи.
-      </p>
+    <section class="cta">
+      <h2 style="margin-bottom:10px;">Готовы внедрить ИИ в работу системно?</h2>
+      <p class="sub" style="margin:0 auto 18px; max-width: 700px;">Забронируйте место на интенсиве и получите полный пакет материалов: презентацию, чек-листы и рабочие шаблоны промптов.</p>
       <a class="btn btn-primary" href="#">Занять место за 2 900 ₽</a>
-      <p class="small" style="margin-top: 12px;">Спеццена до 5 июня. Далее стоимость может вырасти.</p>
+      <p class="small" style="margin-top:12px;">После 5 июня 2026 стоимость вернётся к 4 900 ₽.</p>
     </section>
   </main>
 </body>
