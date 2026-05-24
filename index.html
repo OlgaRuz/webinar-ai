@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Вебинар по нейросетям — 2 часа практики</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --card: #121934;
+      --text: #f2f6ff;
+      --muted: #b7c3e0;
+      --accent: #5b8cff;
+      --accent-2: #43d9ad;
+      --danger: #ff6b6b;
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: radial-gradient(1200px 800px at 10% -20%, #1e2f66 0%, transparent 55%),
+                  radial-gradient(1000px 700px at 120% 0%, #1e6652 0%, transparent 50%),
+                  var(--bg);
+      line-height: 1.5;
+    }
+
+    .container {
+      width: min(1080px, 92%);
+      margin: 0 auto;
+    }
+
+    .hero {
+      padding: 72px 0 48px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(67, 217, 173, 0.2);
+      color: #9ff5dc;
+      border: 1px solid rgba(67, 217, 173, 0.45);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(32px, 5vw, 56px);
+      line-height: 1.12;
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: clamp(17px, 2vw, 20px);
+      margin: 0 0 28px;
+      max-width: 62ch;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      appearance: none;
+      border: none;
+      cursor: pointer;
+      border-radius: 12px;
+      padding: 14px 20px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform .15s ease, opacity .15s ease;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #7ba0ff);
+      color: white;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+    .btn:active { transform: translateY(0); opacity: .9; }
+
+    .hero-card {
+      background: linear-gradient(165deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius);
+      padding: 24px;
+      backdrop-filter: blur(4px);
+    }
+
+    .price {
+      font-size: 38px;
+      font-weight: 800;
+      margin: 8px 0;
+    }
+
+    .deadline {
+      color: #ffd7d7;
+      background: rgba(255, 107, 107, 0.14);
+      border: 1px solid rgba(255, 107, 107, 0.4);
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 10px;
+      font-weight: 600;
+      margin-top: 8px;
+    }
+
+    section { padding: 28px 0; }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      padding: 18px;
+    }
+
+    h2 {
+      font-size: clamp(24px, 3vw, 34px);
+      margin: 0 0 14px;
+    }
+
+    ul { margin: 0; padding-left: 20px; }
+    li { margin-bottom: 8px; color: var(--muted); }
+
+    .audience {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .footer-cta {
+      margin: 26px 0 56px;
+      text-align: center;
+      background: linear-gradient(160deg, #19254e, #15253f);
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 30px 20px;
+    }
+
+    .small { font-size: 14px; color: #9aa7cb; }
+
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; }
+      .cards, .audience { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <section class="hero">
+      <div>
+        <span class="badge">Онлайн-вебинар • 2 часа</span>
+        <h1>Нейросети для работы: быстро разберётесь и сразу начнёте применять</h1>
+        <p class="lead">
+          Практический вебинар для тех, кто хочет познакомиться с ИИ-инструментами и уже в день обучения внедрить их в свои задачи:
+          от картинок и дизайна до личных ассистентов, которые сами собирают информацию.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#register">Забронировать место</a>
+          <a class="btn btn-secondary" href="#program">Посмотреть программу</a>
+        </div>
+        <p class="small">Подходит новичкам. Без сложной теории — только нужные инструменты и пошаговые действия.</p>
+      </div>
+
+      <aside class="hero-card" id="register">
+        <h3>Условия участия</h3>
+        <p class="small">Спеццена действует ограниченное время</p>
+        <div class="price">2 900 ₽</div>
+        <div class="deadline">До 5 июня</div>
+        <ul style="margin-top: 16px;">
+          <li>Формат: онлайн, подключение из любой точки мира</li>
+          <li>Длительность: 2 часа концентрированной практики</li>
+          <li>Получите все инструкции, ссылки и руководство по подключению и настройке</li>
+        </ul>
+        <div class="cta-row" style="margin-top: 18px;">
+          <a class="btn btn-primary" href="#">Записаться на вебинар</a>
+        </div>
+      </aside>
+    </section>
+
+    <section id="program">
+      <h2>Что будет на вебинаре</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Подборка главных ИИ-инструментов</h3>
+          <p class="small">Разберём проверенные сервисы, которые реально экономят время и повышают продуктивность.</p>
+        </article>
+        <article class="card">
+          <h3>Сценарии «взял и применил»</h3>
+          <p class="small">Покажу, как использовать ИИ в ежедневных задачах: тексты, визуал, анализ, автоматизация.</p>
+        </article>
+        <article class="card">
+          <h3>Быстрый старт без хаоса</h3>
+          <p class="small">Дам порядок действий, чтобы не тонуть в сотнях приложений и начать с самого важного.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Кому подойдёт</h2>
+      <div class="audience">
+        <article class="card">
+          <h3>Тем, кто хочет освоить ИИ быстро</h3>
+          <p class="small">Если вам нужен короткий и понятный путь в нейросети без долгого самостоятельного поиска.</p>
+        </article>
+        <article class="card">
+          <h3>Тем, кто хочет больше результатов за то же время</h3>
+          <p class="small">ИИ поможет ускорить рутину, собирать данные и делать работу качественнее.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="footer-cta">
+      <h2 style="margin-bottom: 10px;">Получите систему, а не просто список ссылок</h2>
+      <p class="lead" style="margin: 0 auto 18px; max-width: 700px; font-size: 18px;">
+        На вебинаре вы получите готовые инструкции, полезные ссылки и руководство по подключению,
+        использованию и настройке ИИ-инструментов под ваши задачи.
+      </p>
+      <a class="btn btn-primary" href="#">Занять место за 2 900 ₽</a>
+      <p class="small" style="margin-top: 12px;">Спеццена до 5 июня. Далее стоимость может вырасти.</p>
+    </section>
+  </main>
+</body>
+</html>
