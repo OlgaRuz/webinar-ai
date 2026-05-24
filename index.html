@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Практический вебинар по нейросетям — 2 часа</title>
+  <style>
+    :root {
+      --bg: #f5f9ff;
+      --surface: #ffffff;
+      --surface-soft: #eef5ff;
+      --text: #1b2b4b;
+      --muted: #5c6f92;
+      --line: #dbe7fb;
+      --brand-1: #0072ff;
+      --brand-2: #00c6ff;
+      --ok: #1ba97f;
+      --radius: 16px;
+      --shadow: 0 14px 30px rgba(0, 114, 255, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: radial-gradient(1200px 600px at 10% -20%, #dfefff 10%, transparent 55%), var(--bg);
+      line-height: 1.55;
+    }
+
+    .container { width: min(1120px, 92%); margin: 0 auto; }
+
+    .topbar {
+      padding: 20px 0;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+
+    .logo { font-weight: 800; letter-spacing: .02em; }
+    .logo span { color: var(--brand-1); }
+
+    .chip {
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 24px;
+      align-items: start;
+      padding: 22px 0 34px;
+    }
+
+    h1 {
+      font-size: clamp(33px, 5vw, 56px);
+      line-height: 1.1;
+      margin: 14px 0;
+    }
+
+    .accent { background: linear-gradient(90deg, var(--brand-1), var(--brand-2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .lead { color: var(--muted); margin-bottom: 24px; max-width: 62ch; }
+
+    .btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      text-decoration: none;
+      border-radius: 10px;
+      padding: 14px 20px;
+      font-weight: 700;
+      display: inline-block;
+      transition: .2s;
+    }
+    .btn-main {
+      color: #fff;
+      background-image: radial-gradient(circle at center, var(--brand-1) 0%, var(--brand-2) 100%);
+      box-shadow: 0 10px 18px -10px rgba(0,114,255,.6);
+    }
+    .btn-ghost { color: var(--brand-1); border: 1px solid #b8d2ff; background: #fff; }
+    .btn:hover { transform: translateY(-1px); }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px;
+    }
+
+    .price { font-size: 40px; font-weight: 800; margin: 6px 0 2px; }
+    .deadline {
+      display: inline-block;
+      background: #e9f7f2;
+      color: var(--ok);
+      border: 1px solid #bee9da;
+      border-radius: 10px;
+      padding: 7px 10px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    h2 { font-size: clamp(25px, 3vw, 38px); margin: 0 0 14px; }
+    section { padding: 26px 0; }
+
+    .grid-3, .grid-2 { display: grid; gap: 14px; }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+
+    .feature { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px; }
+    .feature p, .muted { color: var(--muted); }
+    ul { margin: 0; padding-left: 18px; color: var(--muted); }
+
+    .final {
+      background: linear-gradient(160deg, #f3f8ff 0%, #e9f4ff 100%);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 30px;
+      text-align: center;
+      margin: 26px 0 56px;
+    }
+
+    @media (max-width: 900px) {
+      .hero, .grid-3, .grid-2 { grid-template-columns: 1fr; }
+      .topbar { flex-direction: column; gap: 10px; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <header class="topbar">
+      <div class="logo">WEBINAR <span>AI</span></div>
+      <div class="chip">Онлайн • 2 часа • Практика</div>
+    </header>
+
+    <section class="hero">
+      <div>
+        <h1>Нейросети для работы: <span class="accent">разберётесь за 2 часа</span> и сразу внедрите в свои задачи</h1>
+        <p class="lead">Этот вебинар для тех, кто хочет быстро освоить самые нужные ИИ-инструменты и начать получать результат уже в день обучения: работа с картинками и дизайном, текстами, анализом информации и ИИ-ассистентами.</p>
+        <div class="btns">
+          <a class="btn btn-main" href="#register">Записаться на вебинар</a>
+          <a class="btn btn-ghost" href="#program">Смотреть программу</a>
+        </div>
+      </div>
+
+      <aside class="card" id="register">
+        <h3 style="margin-top: 0;">Участие в вебинаре</h3>
+        <p class="muted">Специальная цена действует ограниченно</p>
+        <div class="price">2 900 ₽</div>
+        <div class="deadline">Стоимость до 5 июня</div>
+        <ul>
+          <li>Формат: онлайн, подключение из любой точки</li>
+          <li>Длительность: 2 часа концентрированной практики</li>
+          <li>Вы получите инструкции, ссылки и руководство: как подключить, использовать и настроить ИИ</li>
+        </ul>
+        <p style="margin:16px 0 0;"><a class="btn btn-main" href="#">Занять место</a></p>
+      </aside>
+    </section>
+
+    <section id="program">
+      <h2>Что будет на вебинаре</h2>
+      <div class="grid-3">
+        <article class="feature">
+          <h3>Подборка нужных ИИ-инструментов</h3>
+          <p>Без "воды" и бесконечных списков. Только то, что реально помогает делать работу продуктивнее.</p>
+        </article>
+        <article class="feature">
+          <h3>Пошаговые сценарии применения</h3>
+          <p>Покажу, как использовать ИИ в реальных рабочих задачах: визуал, тексты, сбор информации, автоматизация.</p>
+        </article>
+        <article class="feature">
+          <h3>Быстрый старт без технического стресса</h3>
+          <p>Дам понятный маршрут: что подключить в первую очередь и как настроить под себя, чтобы сразу получить пользу.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Для кого этот вебинар</h2>
+      <div class="grid-2">
+        <article class="feature">
+          <h3>Для новичков в ИИ</h3>
+          <p>Если хотите без долгого самостоятельного поиска понять, какие инструменты действительно нужны и как с ними работать.</p>
+        </article>
+        <article class="feature">
+          <h3>Для тех, кто хочет больше успевать</h3>
+          <p>Если важно ускорить рутину, повысить качество задач и сэкономить время с помощью ИИ-ассистентов.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="final">
+      <h2>Вы уйдёте с готовым набором для внедрения</h2>
+      <p class="lead" style="margin: 0 auto 18px;">После вебинара у вас будут все материалы для старта: инструкции, ссылки, руководство по подключению и настройке, чтобы начать использовать ИИ в работе сразу.</p>
+      <a class="btn btn-main" href="#">Забронировать место за 2 900 ₽</a>
+      <p class="muted" style="margin-top:10px;">Спеццена действует до 5 июня.</p>
+    </section>
+  </main>
+</body>
+</html>
